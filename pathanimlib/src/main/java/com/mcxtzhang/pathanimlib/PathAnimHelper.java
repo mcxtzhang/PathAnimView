@@ -25,15 +25,15 @@ import android.view.animation.LinearInterpolator;
 
 public class PathAnimHelper {
     private static final String TAG = "zxt/PathAnimHelper";
-    private static final long mDefaultAnimTime = 1500;//默认动画总时间
+    protected static final long mDefaultAnimTime = 1500;//默认动画总时间
 
-    private View mView;//执行动画的View
-    private Path mSourcePath;//源Path
-    private Path mAnimPath;//用于绘制动画的Path
-    private long mAnimTime;//动画一共的时间
-    private boolean mIsInfinite;//是否无限循环
+    protected View mView;//执行动画的View
+    protected Path mSourcePath;//源Path
+    protected Path mAnimPath;//用于绘制动画的Path
+    protected long mAnimTime;//动画一共的时间
+    protected boolean mIsInfinite;//是否无限循环
 
-    private ValueAnimator mAnimator;//动画对象
+    protected ValueAnimator mAnimator;//动画对象
 
     /**
      * INIT FUNC
@@ -129,7 +129,7 @@ public class PathAnimHelper {
      * @param totalDuaration 动画一共的时间
      * @param isInfinite     是否无限循环
      */
-    private void startAnim(View view, Path sourcePath, Path animPath, long totalDuaration, boolean isInfinite) {
+    protected void startAnim(View view, Path sourcePath, Path animPath, long totalDuaration, boolean isInfinite) {
         if (view == null || sourcePath == null || animPath == null) {
             return;
         }
@@ -157,7 +157,7 @@ public class PathAnimHelper {
      * @param animPath    自定义View用这个Path做动画
      * @param pathMeasure 用于测量的PathMeasure
      */
-    private void loopAnim(final View view, final Path sourcePath, final Path animPath, final long totalDuaration, final PathMeasure pathMeasure, final long duration, final boolean isInfinite) {
+    protected void loopAnim(final View view, final Path sourcePath, final Path animPath, final long totalDuaration, final PathMeasure pathMeasure, final long duration, final boolean isInfinite) {
         //动画正在运行的话，先stop吧。万一有人要使用新动画呢，（正经用户不会这么用。）
         stopAnim();
 
@@ -172,6 +172,9 @@ public class PathAnimHelper {
                 float value = (float) animation.getAnimatedValue();
                 //获取一个段落
                 pathMeasure.getSegment(0, pathMeasure.getLength() * value, animPath, true);
+
+                //增加一个callback 便于子类搞事情
+                onPathAnimCallback(view, sourcePath, animPath, pathMeasure);
                 //通知View刷新自己
                 view.invalidate();
             }
@@ -215,5 +218,17 @@ public class PathAnimHelper {
             mAnimator.end();
             //Log.e("TAG", "true stopAnim: ");
         }
+    }
+
+    /**
+     * 用于子类继承搞事情，对animPath进行再次操作的函数
+     *
+     * @param view
+     * @param sourcePath
+     * @param animPath
+     * @param pathMeasure
+     */
+    public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure) {
+
     }
 }

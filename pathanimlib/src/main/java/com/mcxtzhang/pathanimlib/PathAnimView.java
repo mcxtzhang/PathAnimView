@@ -75,7 +75,6 @@ public class PathAnimView extends View {
 
     public PathAnimView setPathAnimHelper(PathAnimHelper pathAnimHelper) {
         mPathAnimHelper = pathAnimHelper;
-        initAnimHelper();
         return this;
     }
 
@@ -106,7 +105,7 @@ public class PathAnimView extends View {
     /**
      * //初始化动画帮助类
      */
-    private void initAnimHelper() {
+    protected void initAnimHelper() {
         mPathAnimHelper = new PathAnimHelper(this, mSourcePath, mAnimPath);
         //mPathAnimHelper = new PathAnimHelper(this, mSourcePath, mAnimPath, 1500, true);
     }
