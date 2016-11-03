@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PathAnimView.iml" filepath="$PROJECT_DIR$/PathAnimView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pathanimlib/pathanimlib.iml" filepath="$PROJECT_DIR$/pathanimlib/pathanimlib.iml" />
+    </modules>
+  </component>
+</project>

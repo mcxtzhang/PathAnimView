@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_path_measure"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="com.mcxtzhang.myapplication.MainActivity">
+
+    <com.mcxtzhang.myapplication.LoadingPathAnimView
+        android:id="@+id/fillView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"/>
+
+    <com.mcxtzhang.myapplication.CstStoreHouseAnimView
+        android:id="@+id/storeView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="65dp"/>
+
+    <com.mcxtzhang.myapplication.LoadingPathAnimView
+        android:id="@+id/fillView2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="130dp"/>
+
+    <com.mcxtzhang.myapplication.CstStoreHouseAnimView
+        android:id="@+id/storeView2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="195dp"/>
+
+    <com.mcxtzhang.pathanimlib.PathAnimView
+        android:id="@+id/pathAnimView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="260dp"/>
+
+    <com.mcxtzhang.pathanimlib.StoreHouseAnimView
+        android:id="@+id/storeView3"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="325dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="start"
+        android:text="动起来"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:onClick="stop"
+        android:text="控制自己"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="200dp"
+        android:onClick="reset"
+        android:text="重置"/>
+
+</RelativeLayout>
