@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class StoreHouseAnimHelper extends PathAnimHelper {
     private final static long MAX_LENGTH = 400;
 
+    private long mPathMaxLength;//残影路径最大长度
     Path mStonePath;//暂存一下路径，最终要复制给animPath的
     PathMeasure mPm;
     private ArrayList<Float> mPathLengthArray;//路径长度array
@@ -30,10 +31,22 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
 
     public StoreHouseAnimHelper(View view, Path sourcePath, Path animPath, long animTime, boolean isInfinite) {
         super(view, sourcePath, animPath, animTime, isInfinite);
+        mPathMaxLength = MAX_LENGTH;
         mStonePath = new Path();
         mPm = new PathMeasure();
         mPathLengthArray = new ArrayList<>();//顺序存放path的length
         mPathNeedAddArray = new SparseArray<>();
+    }
+    /**
+     * GET SET FUNC
+     **/
+    public long getPathMaxLength() {
+        return mPathMaxLength;
+    }
+
+    public StoreHouseAnimHelper setPathMaxLength(long pathMaxLength) {
+        mPathMaxLength = pathMaxLength;
+        return this;
     }
 
     @Override
@@ -53,12 +66,12 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
         partIndex = 0;
         partLength = 0;
         for (int i = mPathLengthArray.size() - 1; i >= 0; i--) {
-            if (totalLength + mPathLengthArray.get(i) <= MAX_LENGTH) {//加上了也没满
+            if (totalLength + mPathLengthArray.get(i) <= mPathMaxLength) {//加上了也没满
                 mPathNeedAddArray.put(i, true);
                 totalLength = totalLength + mPathLengthArray.get(i);
-            } else if (totalLength < MAX_LENGTH) {//加上了满了，但是不加就没满
+            } else if (totalLength < mPathMaxLength) {//加上了满了，但是不加就没满
                 partIndex = i;
-                partLength = MAX_LENGTH - totalLength;
+                partLength = mPathMaxLength - totalLength;
                 totalLength = totalLength + mPathLengthArray.get(i);
             }
         }

@@ -24,8 +24,28 @@ public class StoreHouseAnimView extends PathAnimView {
         super(context, attrs, defStyleAttr);
     }
 
+    /**
+     * GET SET FUNC
+     **/
+    public long getPathMaxLength() {
+        return ((StoreHouseAnimHelper) mPathAnimHelper).getPathMaxLength();
+    }
+
+    /**
+     * 设置残影最大长度
+     *
+     * @param pathMaxLength
+     * @return
+     */
+    public StoreHouseAnimView setPathMaxLength(long pathMaxLength) {
+        ((StoreHouseAnimHelper) mPathAnimHelper).setPathMaxLength(pathMaxLength);
+        return this;
+    }
+
     @Override
     protected void initAnimHelper() {
         mPathAnimHelper = new StoreHouseAnimHelper(this, mSourcePath, mAnimPath);
     }
+
+
 }
