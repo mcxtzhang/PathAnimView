@@ -78,6 +78,11 @@ public class PathAnimView extends View {
         return this;
     }
 
+    public Path getAnimPath() {
+        return mAnimPath;
+    }
+
+
     /**
      * INIT FUNC
      **/

@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         sPath.moveTo(0, 0);
         sPath.addCircle(40, 40, 30, Path.Direction.CW);
         pathAnimView1.setSourcePath(sPath);
+        //代码示例 动态对path加工，通过Helper
+        pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, sPath, pathAnimView1.getAnimPath()));
 
         storeView3 = (StoreHouseAnimView) findViewById(R.id.storeView3);
         sPath = new Path();

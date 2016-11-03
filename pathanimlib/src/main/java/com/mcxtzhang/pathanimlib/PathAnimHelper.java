@@ -169,12 +169,8 @@ public class PathAnimHelper {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 //Log.i("TAG", "onAnimationUpdate");
-                float value = (float) animation.getAnimatedValue();
-                //获取一个段落
-                pathMeasure.getSegment(0, pathMeasure.getLength() * value, animPath, true);
-
-                //增加一个callback 便于子类搞事情
-                onPathAnimCallback(view, sourcePath, animPath, pathMeasure);
+                //增加一个callback 便于子类重写搞事情
+                onPathAnimCallback(view, sourcePath, animPath, pathMeasure, animation);
                 //通知View刷新自己
                 view.invalidate();
             }
@@ -228,7 +224,9 @@ public class PathAnimHelper {
      * @param animPath
      * @param pathMeasure
      */
-    public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure) {
-
+    public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure, ValueAnimator animation) {
+        float value = (float) animation.getAnimatedValue();
+        //获取一个段落
+        pathMeasure.getSegment(0, pathMeasure.getLength() * value, animPath, true);
     }
 }

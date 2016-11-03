@@ -1,5 +1,6 @@
 package com.mcxtzhang.pathanimlib;
 
+import android.animation.ValueAnimator;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.util.SparseArray;
@@ -37,6 +38,7 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
         mPathLengthArray = new ArrayList<>();//顺序存放path的length
         mPathNeedAddArray = new SparseArray<>();
     }
+
     /**
      * GET SET FUNC
      **/
@@ -50,7 +52,8 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
     }
 
     @Override
-    public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure) {
+    public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure, ValueAnimator animation) {
+        super.onPathAnimCallback(view, sourcePath, animPath, pathMeasure, animation);
         //仿StoneHouse效果 ,现在的做法很挫
         mStonePath.reset();
         mStonePath.lineTo(0, 0);
