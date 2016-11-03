@@ -26,6 +26,8 @@ public class PathAnimView extends View {
     protected Paint mPaint;
     protected PathAnimHelper mPathAnimHelper;//Path动画工具类
 
+    protected int mPaddingLeft, mPaddingTop;
+
     public PathAnimView(Context context) {
         this(context, null);
     }
@@ -48,6 +50,7 @@ public class PathAnimView extends View {
 
     /**
      * 这个方法可能会经常用到，用于设置源Path
+     *
      * @param sourcePath
      * @return
      */
@@ -93,6 +96,13 @@ public class PathAnimView extends View {
 
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mPaddingLeft = getPaddingLeft();
+        mPaddingTop = getPaddingTop();
+    }
+
     /**
      * //初始化动画帮助类
      */
@@ -108,7 +118,7 @@ public class PathAnimView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //平移
-        canvas.translate(20, 20);
+        canvas.translate(mPaddingLeft, mPaddingTop);
         setBackgroundColor(Color.BLACK);
         mPaint.setColor(Color.GRAY);
         canvas.drawPath(mSourcePath, mPaint);

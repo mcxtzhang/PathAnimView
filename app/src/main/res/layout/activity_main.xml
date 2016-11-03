@@ -13,37 +13,43 @@
     <com.mcxtzhang.myapplication.LoadingPathAnimView
         android:id="@+id/fillView1"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.CstStoreHouseAnimView
         android:id="@+id/storeView1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="65dp"/>
+        android:layout_marginTop="65dp"
+        android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.LoadingPathAnimView
         android:id="@+id/fillView2"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="130dp"/>
+        android:layout_marginTop="130dp"
+        android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.CstStoreHouseAnimView
         android:id="@+id/storeView2"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="195dp"/>
+        android:layout_marginTop="195dp"
+        android:padding="5dp"/>
 
     <com.mcxtzhang.pathanimlib.PathAnimView
         android:id="@+id/pathAnimView1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="260dp"/>
+        android:layout_marginTop="260dp"
+        android:padding="5dp"/>
 
     <com.mcxtzhang.pathanimlib.StoreHouseAnimView
         android:id="@+id/storeView3"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="325dp"/>
+        android:layout_marginTop="325dp"
+        android:padding="5dp"/>
 
     <Button
         android:layout_width="wrap_content"

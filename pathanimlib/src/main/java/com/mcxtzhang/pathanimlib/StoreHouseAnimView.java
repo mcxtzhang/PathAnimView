@@ -42,7 +42,8 @@ public class StoreHouseAnimView extends PathAnimView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.translate(20, 20);
+        //平移
+        canvas.translate(mPaddingLeft, mPaddingTop);
         setBackgroundColor(Color.BLACK);
         mPaint.setColor(Color.GRAY);
         canvas.drawPath(mSourcePath, mPaint);
