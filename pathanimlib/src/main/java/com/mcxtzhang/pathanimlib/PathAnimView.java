@@ -111,6 +111,7 @@ public class PathAnimView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(3);
 
         //动画路径只要初始化即可
         mAnimPath = new Path();
@@ -153,10 +154,11 @@ public class PathAnimView extends View {
         //平移
         canvas.translate(mPaddingLeft, mPaddingTop);
 
+        //先绘制底，
         mPaint.setColor(mColorBg);
         canvas.drawPath(mSourcePath, mPaint);
 
-
+        //再绘制前景，mAnimPath不断变化，不断重绘View的话，就会有动画效果。
         mPaint.setColor(mColorFg);
         canvas.drawPath(mAnimPath, mPaint);
     }
