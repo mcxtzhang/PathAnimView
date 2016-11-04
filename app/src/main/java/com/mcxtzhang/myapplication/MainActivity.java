@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         storeView1 = (CstStoreHouseAnimView) findViewById(R.id.storeView1);
         storeView2 = (CstStoreHouseAnimView) findViewById(R.id.storeView2);
 
+
+        //设置颜色
+        fillView2.setColorBg(Color.WHITE).setColorFg(Color.BLACK);
+
+
         //动态设置 从StringArray里取
         storeView2.setSourcePath(PathParserUtils.getPathFromStringArray(this, R.array.storehouse, 3));
 
@@ -40,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //代码示例 动态对path加工，通过Helper
         pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
         //设置颜色
-        pathAnimView1.setColorBg(Color.WHITE);
-        pathAnimView1.setColorFg(Color.RED);
+        pathAnimView1.setColorBg(Color.WHITE).setColorFg(Color.RED);
 
         storeView3 = (StoreHouseAnimView) findViewById(R.id.storeView3);
         sPath = new Path();

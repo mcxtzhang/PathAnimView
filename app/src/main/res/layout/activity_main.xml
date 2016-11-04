@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="130dp"
-        android:background="@android:color/black"
+        android:background="@color/yellow"
         android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.CstStoreHouseAnimView
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="325dp"
-        android:background="@android:color/black"
+        android:background="@color/cube_holo_purple"
         android:padding="5dp"/>
 
     <Button
