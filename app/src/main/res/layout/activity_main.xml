@@ -14,6 +14,7 @@
         android:id="@+id/fillView1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:background="@android:color/black"
         android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.CstStoreHouseAnimView
@@ -21,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="65dp"
+        android:background="@android:color/black"
         android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.LoadingPathAnimView
@@ -28,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="130dp"
+        android:background="@android:color/black"
         android:padding="5dp"/>
 
     <com.mcxtzhang.myapplication.CstStoreHouseAnimView
@@ -35,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="195dp"
+        android:background="@android:color/black"
         android:padding="5dp"/>
 
     <com.mcxtzhang.pathanimlib.PathAnimView
@@ -42,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="260dp"
+        android:background="@color/blue"
         android:padding="5dp"/>
 
     <com.mcxtzhang.pathanimlib.StoreHouseAnimView
@@ -49,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="325dp"
+        android:background="@android:color/black"
         android:padding="5dp"/>
 
     <Button

@@ -24,6 +24,8 @@ public class PathAnimView extends View {
     protected Path mSourcePath;//需要做动画的源Path
     protected Path mAnimPath;//用于绘制动画的Path
     protected Paint mPaint;
+    protected int mColorBg = Color.GRAY;//背景色
+    protected int mColorFg = Color.WHITE;//前景色 填充色
     protected PathAnimHelper mPathAnimHelper;//Path动画工具类
 
     protected int mPaddingLeft, mPaddingTop;
@@ -66,6 +68,24 @@ public class PathAnimView extends View {
 
     public PathAnimView setPaint(Paint paint) {
         mPaint = paint;
+        return this;
+    }
+
+    public int getColorBg() {
+        return mColorBg;
+    }
+
+    public PathAnimView setColorBg(int colorBg) {
+        mColorBg = colorBg;
+        return this;
+    }
+
+    public int getColorFg() {
+        return mColorFg;
+    }
+
+    public PathAnimView setColorFg(int colorFg) {
+        mColorFg = colorFg;
         return this;
     }
 
@@ -124,12 +144,12 @@ public class PathAnimView extends View {
         super.onDraw(canvas);
         //平移
         canvas.translate(mPaddingLeft, mPaddingTop);
-        setBackgroundColor(Color.BLACK);
-        mPaint.setColor(Color.GRAY);
+
+        mPaint.setColor(mColorBg);
         canvas.drawPath(mSourcePath, mPaint);
 
 
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(mColorFg);
         canvas.drawPath(mAnimPath, mPaint);
     }
 

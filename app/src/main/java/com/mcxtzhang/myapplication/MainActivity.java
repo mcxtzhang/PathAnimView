@@ -1,5 +1,6 @@
 package com.mcxtzhang.myapplication;
 
+import android.graphics.Color;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,10 +34,14 @@ public class MainActivity extends AppCompatActivity {
         pathAnimView1 = (PathAnimView) findViewById(R.id.pathAnimView1);
         Path sPath = new Path();
         sPath.moveTo(0, 0);
-        sPath.addCircle(40, 40, 30, Path.Direction.CW);
+        sPath.addCircle(70, 70, 60, Path.Direction.CW);
+        sPath.addCircle(70, 70, 40, Path.Direction.CW);
         pathAnimView1.setSourcePath(sPath);
         //代码示例 动态对path加工，通过Helper
         pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
+        //设置颜色
+        pathAnimView1.setColorBg(Color.WHITE);
+        pathAnimView1.setColorFg(Color.RED);
 
         storeView3 = (StoreHouseAnimView) findViewById(R.id.storeView3);
         sPath = new Path();
