@@ -1,11 +1,9 @@
-package com.mcxtzhang.myapplication;
+package com.mcxtzhang.pathanimlib;
 
 import android.animation.ValueAnimator;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.view.View;
-
-import com.mcxtzhang.pathanimlib.PathAnimHelper;
 
 /**
  * 介绍：自定义的PathAnimHelper，实现类似Android L+ 进度条效果
@@ -14,12 +12,12 @@ import com.mcxtzhang.pathanimlib.PathAnimHelper;
  * 时间： 2016/11/3.
  */
 
-public class CstSysLoadAnimHelper extends PathAnimHelper {
-    public CstSysLoadAnimHelper(View view, Path sourcePath, Path animPath) {
+public class SysLoadAnimHelper extends PathAnimHelper {
+    public SysLoadAnimHelper(View view, Path sourcePath, Path animPath) {
         super(view, sourcePath, animPath);
     }
 
-    public CstSysLoadAnimHelper(View view, Path sourcePath, Path animPath, long animTime, boolean isInfinite) {
+    public SysLoadAnimHelper(View view, Path sourcePath, Path animPath, long animTime, boolean isInfinite) {
         super(view, sourcePath, animPath, animTime, isInfinite);
     }
 

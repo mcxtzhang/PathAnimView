@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.mcxtzhang.pathanimlib.SysLoadAnimHelper;
 import com.mcxtzhang.pathanimlib.PathAnimView;
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
 import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         sPath.addCircle(50, 50, 40, Path.Direction.CW);
         pathAnimView1.setSourcePath(sPath);
         //代码示例 动态对path加工，通过Helper
-        pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
+        pathAnimView1.setPathAnimHelper(new SysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
         //设置颜色
         pathAnimView1.setColorBg(Color.WHITE).setColorFg(Color.RED);
         //当然你可以自己拿到Paint，然后搞事情，我这里设置线条宽度
