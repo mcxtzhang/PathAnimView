@@ -57,6 +57,31 @@ http://gold.xitu.io/post/581c516a0ce46300587a10db
 图5 是另一种自定义PathAnimHelper实现的自定义动画效果。类似Android L+ 系统进度条效果。
 图6 是仿StoreHouse效果，但是将动画时长设置的很大，所以能看到它逐渐的过程。
 
+StoneHouse效果如下简单使用：
+```
+    <com.mcxtzhang.pathanimlib.StoreHouseAnimView
+        android:id="@+id/pathAnimView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@android:color/black"
+        android:padding="5dp"/>
+```
+
+
+```
+        pathAnimView1 = (StoreHouseAnimView) findViewById(R.id.pathAnimView1);
+        Path sPath = new Path();
+        sPath.moveTo(0, 0);
+        sPath.addCircle(40, 40, 30, Path.Direction.CW);
+        pathAnimView1.setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("McXtZhang")));
+        pathAnimView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pathAnimView1.startAnim();
+            }
+        });
+```
+
 ## 参数
 **目前可配**参数：
 1 绘制方面，支持绘制Path的**前景 背景**色。
