@@ -12,12 +12,14 @@ import android.view.animation.LinearInterpolator;
 /**
  * 介绍：一个自定义View Path动画的工具类
  * <p>
- * 一个SourcePath 内含多段Path，循环取出每段Path，并做一个动画,
+ * 一个SourcePath 内含多段（一段）Path，循环取出每段Path，并做一个动画,
  * <p>
  * 默认动画时间1500ms，无限循环
  * 可以通过构造函数修改这两个参数
  * <p>
  * 对外暴露 startAnim() 和 stopAnim()两个方法
+ * <p>
+ * 子类可通过重写onPathAnimCallback（）方法，对animPath进行再次操作，从而定义不同的动画效果
  * 作者：zhangxutong
  * 邮箱：zhangxutong@imcoming.com
  * 时间： 2016/11/2.
@@ -197,10 +199,6 @@ public class PathAnimHelper {
                 }
             }
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                //Log.e("TAG", "onAnimationEnd: ");
-            }
         });
         mAnimator.start();
     }

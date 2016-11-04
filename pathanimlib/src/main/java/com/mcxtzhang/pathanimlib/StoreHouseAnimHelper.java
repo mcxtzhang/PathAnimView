@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 /**
  * 介绍：仿StoreHouse风格的PathAnimHepler
+ * 增加了一个动画残影长度的属性：mPathMaxLength,默认值是400
+ *
+ * 因没有找到有用的API，这里实现StoreHouse的方法，是手工计算的，不是很爽。
+ * 思路是是循环一遍AnimPath，记录里面每一段小Path的length。
+ * 然后再逆序遍历AnimPath，从后面截取 残影长度 的Path，
+ * 再复制给AnimPath。
  * 作者：zhangxutong
  * 邮箱：zhangxutong@imcoming.com
  * 时间： 2016/11/2.
@@ -55,15 +61,19 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
     public void onPathAnimCallback(View view, Path sourcePath, Path animPath, PathMeasure pathMeasure, ValueAnimator animation) {
         super.onPathAnimCallback(view, sourcePath, animPath, pathMeasure, animation);
         //仿StoneHouse效果 ,现在的做法很挫
+        //重置变量
         mStonePath.reset();
         mStonePath.lineTo(0, 0);
         mPathLengthArray.clear();
 
+        //循环一遍AnimPath，记录里面每一段小Path的length。
         mPm.setPath(animPath, false);
         while (mPm.getLength() != 0) {
             mPathLengthArray.add(mPm.getLength());
             mPm.nextContour();
         }
+
+        //逆序遍历AnimPath，记录哪些子Path是需要add的，并且记录那段需要部分add的path的下标
         mPathNeedAddArray.clear();
         float totalLength = 0;
         partIndex = 0;
@@ -78,7 +88,7 @@ public class StoreHouseAnimHelper extends PathAnimHelper {
                 totalLength = totalLength + mPathLengthArray.get(i);
             }
         }
-
+        //循环Path，并得到最终要显示的AnimPath
         mPm.setPath(animPath, false);
         int i = 0;
         while (mPm.getLength() != 0) {

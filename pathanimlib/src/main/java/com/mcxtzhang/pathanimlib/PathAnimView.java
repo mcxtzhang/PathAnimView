@@ -13,6 +13,7 @@ import android.view.View;
  * 利用源Path绘制“底”
  * 利用动画Path 绘制 填充动画
  * <p>
+ * 通过mPathAnimHelper 对SourcePath做动画：
  * 一个SourcePath 内含多段Path，循环取出每段Path，并做一个动画,
  * <p>
  * 作者：zhangxutong
