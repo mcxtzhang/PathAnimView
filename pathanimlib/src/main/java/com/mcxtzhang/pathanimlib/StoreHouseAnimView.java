@@ -43,9 +43,7 @@ public class StoreHouseAnimView extends PathAnimView {
     }
 
     @Override
-    protected void initAnimHelper() {
-        mPathAnimHelper = new StoreHouseAnimHelper(this, mSourcePath, mAnimPath);
+    protected PathAnimHelper getInitAnimHeper() {
+        return new StoreHouseAnimHelper(this, mSourcePath, mAnimPath);
     }
-
-
 }
