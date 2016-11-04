@@ -184,9 +184,9 @@ public class PathAnimView extends View {
     }
 
     /**
-     * 重置
+     * 清除并停止动画
      */
-    public void resetAnim() {
+    public void clearAnim() {
         stopAnim();
         mAnimPath.reset();
         mAnimPath.lineTo(0, 0);

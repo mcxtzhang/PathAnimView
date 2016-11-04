@@ -8,7 +8,7 @@ import android.view.View;
 import com.mcxtzhang.pathanimlib.PathAnimHelper;
 
 /**
- * 介绍：
+ * 介绍：自定义的PathAnimHelper，实现类似Android L+ 进度条效果
  * 作者：zhangxutong
  * 邮箱：zhangxutong@imcoming.com
  * 时间： 2016/11/3.

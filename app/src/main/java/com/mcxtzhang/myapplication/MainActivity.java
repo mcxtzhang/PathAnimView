@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
         //设置颜色
         pathAnimView1.setColorBg(Color.WHITE).setColorFg(Color.RED);
+        //当然你可以自己拿到Paint，然后搞事情，我这里设置线条宽度
+        pathAnimView1.getPaint().setStrokeWidth(10);
 
         storeView3 = (StoreHouseAnimView) findViewById(R.id.storeView3);
         sPath = new Path();
@@ -87,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void reset(View view) {
-        fillView1.resetAnim();
-        fillView2.resetAnim();
-        storeView1.resetAnim();
-        storeView2.resetAnim();
-        pathAnimView1.resetAnim();
-        storeView3.resetAnim();
+        fillView1.clearAnim();
+        fillView2.clearAnim();
+        storeView1.clearAnim();
+        storeView2.clearAnim();
+        pathAnimView1.clearAnim();
+        storeView3.clearAnim();
     }
 }
