@@ -2,6 +2,27 @@
 用于做Path动画的自定义View。
 **I have a path.I have a view. (Oh~),Path(Anim)View.**
 
+# 使用：
+Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
+```
+    allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+Step 2. Add the dependency
+```
+	dependencies {
+	        compile 'com.github.mcxtzhang:PathAnimView:V1.0.0'
+	}
+```
+
+相关博文：
+http://gold.xitu.io/post/581c516a0ce46300587a10db
+
+
 # 一 概述
 原本只是想模仿一下我魂牵梦萦的StoreHouse效果，没想到意外撸出来一个工具库。
 
