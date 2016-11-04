@@ -1,12 +1,11 @@
 package com.mcxtzhang.myapplication;
 
 import android.content.Context;
-import android.graphics.Path;
 import android.util.AttributeSet;
 
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
-
-import java.util.ArrayList;
+import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
+import com.mcxtzhang.pathanimlib.res.StoreHousePath;
 
 /**
  * 介绍：一个StoreHouse风格动画的View
@@ -28,14 +27,8 @@ public class CstStoreHouseAnimView extends StoreHouseAnimView {
 
     public CstStoreHouseAnimView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Path sPath = new Path();
-        ArrayList<float[]> path = StoreHousePath.getPath("ZhangXuTong");
-        for (int i = 0; i < path.size(); i++) {
-            float[] floats = path.get(i);
-            sPath.moveTo(floats[0], floats[1]);
-            sPath.lineTo(floats[2], floats[3]);
-        }
-        setSourcePath(sPath);
+        //根据String 转化成Path
+        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("ZhangXuTong", 1.1f, 16)));
     }
 
 }

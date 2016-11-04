@@ -108,7 +108,8 @@ public class PathAnimView extends View {
     }
 
     /**
-     * //初始化动画帮助类
+     * 初始化动画帮助类
+     * 子类可通过重写这个方法，设置自己的AnimHelper
      */
     protected void initAnimHelper() {
         mPathAnimHelper = new PathAnimHelper(this, mSourcePath, mAnimPath);

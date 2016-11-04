@@ -1,12 +1,11 @@
 package com.mcxtzhang.myapplication;
 
 import android.content.Context;
-import android.graphics.Path;
 import android.util.AttributeSet;
 
 import com.mcxtzhang.pathanimlib.PathAnimView;
-
-import java.util.ArrayList;
+import com.mcxtzhang.pathanimlib.res.StoreHousePath;
+import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
 
 /**
  * 介绍：一种填充loading的动画View
@@ -27,13 +26,6 @@ public class LoadingPathAnimView extends PathAnimView {
 
     public LoadingPathAnimView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Path sPath = new Path();
-        ArrayList<float[]> path = StoreHousePath.getPath("ZhangXuTong");
-        for (int i = 0; i < path.size(); i++) {
-            float[] floats = path.get(i);
-            sPath.moveTo(floats[0], floats[1]);
-            sPath.lineTo(floats[2], floats[3]);
-        }
-        setSourcePath(sPath);
+        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("ZhangXuTong")));
     }
 }

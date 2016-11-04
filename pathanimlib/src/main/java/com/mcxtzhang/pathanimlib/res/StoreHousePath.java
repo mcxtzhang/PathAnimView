@@ -1,11 +1,15 @@
-package com.mcxtzhang.myapplication;
+package com.mcxtzhang.pathanimlib.res;
 
 import android.util.SparseArray;
 
 import java.util.ArrayList;
 
 /**
+ * 获取StoreHouse风格Path
  * Created by srain on 11/7/14.
+ *
+ * 增加一个getPath()方法，
+ * update by zhangxutong on 2016 11 04
  */
 public class StoreHousePath {
 

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.mcxtzhang.pathanimlib.PathAnimView;
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
+import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
 
 public class MainActivity extends AppCompatActivity {
     LoadingPathAnimView fillView1;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         storeView1 = (CstStoreHouseAnimView) findViewById(R.id.storeView1);
         storeView2 = (CstStoreHouseAnimView) findViewById(R.id.storeView2);
 
+        //动态设置 从StringArray里取
+        storeView2.setSourcePath(PathParserUtils.getPathFromStringArray(this, R.array.storehouse, 3));
+
         //动态设置Path实例
         pathAnimView1 = (PathAnimView) findViewById(R.id.pathAnimView1);
         Path sPath = new Path();
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         sPath.addCircle(40, 40, 30, Path.Direction.CW);
         pathAnimView1.setSourcePath(sPath);
         //代码示例 动态对path加工，通过Helper
-        pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, sPath, pathAnimView1.getAnimPath()));
+        pathAnimView1.setPathAnimHelper(new CstSysLoadAnimHelper(pathAnimView1, pathAnimView1.getSourcePath(), pathAnimView1.getAnimPath()));
 
         storeView3 = (StoreHouseAnimView) findViewById(R.id.storeView3);
         sPath = new Path();
@@ -43,6 +47,16 @@ public class MainActivity extends AppCompatActivity {
             sPath.lineTo(300, 5 * i);
         }
         storeView3.setSourcePath(sPath);
+
+        //SVG转-》path
+        //还在完善中，我从github上找了如下工具类，发现简单的SVG可以转path，复杂点的 就乱了
+/*        SvgPathParser svgPathParser = new SvgPathParser();
+        try {
+            Path path = svgPathParser.parsePath("M1,1 L1,50 L50,50 L50,50 L50,1 Z");
+            storeView3.setSourcePath(path);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
     }
 
     public void start(View view) {
