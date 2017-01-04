@@ -58,6 +58,7 @@
         android:padding="5dp"/>
 
     <Button
+        android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -65,19 +66,31 @@
         android:text="动起来"/>
 
     <Button
+        android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="100dp"
+        android:layout_toRightOf="@id/btn1"
         android:onClick="stop"
         android:text="控制自己"/>
 
     <Button
+        android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="200dp"
+        android:layout_toRightOf="@id/btn2"
         android:onClick="reset"
         android:text="重置"/>
+
+    <Button
+        android:id="@+id/btnSvg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_toRightOf="@id/btn3"
+        android:onClick="reset"
+        android:text="SVG"/>
 
 </RelativeLayout>

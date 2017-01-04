@@ -1,14 +1,16 @@
 package com.mcxtzhang.myapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.mcxtzhang.pathanimlib.SysLoadAnimHelper;
+import com.mcxtzhang.myapplication.svg.SvgActivity;
 import com.mcxtzhang.pathanimlib.PathAnimView;
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
+import com.mcxtzhang.pathanimlib.SysLoadAnimHelper;
 import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
         //还在完善中，我从github上找了如下工具类，发现简单的SVG可以转path，复杂点的 就乱了
 /*        SvgPathParser svgPathParser = new SvgPathParser();
         try {
-            Path path = svgPathParser.parsePath("M1,1 L1,50 L50,50 L50,50 L50,1 Z");
+            Path path = svgPathParser.parsePath("M 0.00 0.00 L 326.00 0.00 L 326.00 167.15 C 323.98 168.11 323.97 170.88 326.00 171.84 L 326.00 261.00 L 0.00 261.00 L 0.00 0.00 M 7.02 33.03 C 6.98 101.68 6.98 170.33 7.03 238.97 C 112.01 239.02 216.99 239.01 321.97 238.98 C 322.02 170.33 322.02 101.68 321.97 33.03 C 216.99 32.98 112.01 32.98 7.02 33.03 Z");
             storeView3.setSourcePath(path);
         } catch (ParseException e) {
             e.printStackTrace();
         }*/
+
+        findViewById(R.id.btnSvg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SvgActivity.class));
+            }
+        });
     }
 
     public void start(View view) {
