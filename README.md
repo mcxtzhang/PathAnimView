@@ -77,13 +77,13 @@ Step 2. Add the dependency
 I have a pic.I have a view. Oh~,Path(Anim)View.
 效果先随便上几个图，以后**你找到的图有多精彩，gif就有多精彩**：
 
-![随便搜了一个铅笔画的图，丢进去](https://github.com/mcxtzhang/PathAnimView/tree/master/gif/qianbihua.gif)
+![随便搜了一个铅笔画的图，丢进去](https://github.com/mcxtzhang/PathAnimView/blob/master/gif/qianbihua.gif)
 
-![支付成功动画](https://github.com/mcxtzhang/PathAnimView/tree/master/gif/success.gif)
+![支付成功动画](https://github.com/mcxtzhang/PathAnimView/blob/master/gif/success.gif)
 
-![随手复制的二维码icon](https://github.com/mcxtzhang/PathAnimView/tree/master/gif/qrcode.gif)
+![随手复制的二维码icon](https://github.com/mcxtzhang/PathAnimView/blob/master/gif/qrcode.gif)
 
-![来自大佬wing的铁塔](https://github.com/mcxtzhang/PathAnimView/tree/master/gif/tieta.gif)
+![来自大佬wing的铁塔](https://github.com/mcxtzhang/PathAnimView/blob/master/gif/tieta.gif)
 
 
 
