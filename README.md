@@ -1,6 +1,22 @@
 # PathAnimView
 用于做Path动画的自定义View。
+
 **I have a path.I have a view. (Oh~),Path(Anim)View.**
+
+现已经找到图片->SVG->PATH的正确姿势，
+
+**Now i have a pic.I have a view. Oh~,Path(Anim)View.**
+
+相关博文：
+
+实现详解：
+
+http://blog.csdn.net/zxt0601/article/details/53040506
+
+图片->SVG->Path的正确姿势  ，用法进阶：
+
+http://blog.csdn.net/zxt0601/article/details/54018970
+
 
 # 使用：
 Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
@@ -19,15 +35,6 @@ Step 2. Add the dependency
 	}
 ```
 
-相关博文：
-
-实现详解：
-
-http://blog.csdn.net/zxt0601/article/details/53040506
-
-图片->SVG->Path的正确姿势  ，用法进阶：
-
-http://blog.csdn.net/zxt0601/article/details/54018970
 
 
 
