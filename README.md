@@ -20,7 +20,15 @@ Step 2. Add the dependency
 ```
 
 相关博文：
-http://gold.xitu.io/post/581c516a0ce46300587a10db
+
+实现详解：
+
+http://blog.csdn.net/zxt0601/article/details/53040506
+
+图片->SVG->Path的正确姿势  ，用法进阶：
+
+http://blog.csdn.net/zxt0601/article/details/54018970
+
 
 
 # 一 概述
@@ -56,6 +64,24 @@ http://gold.xitu.io/post/581c516a0ce46300587a10db
 图4 是仿StoreHouse效果。数据源来自R.array.xxxx
 图5 是另一种自定义PathAnimHelper实现的自定义动画效果。类似Android L+ 系统进度条效果。
 图6 是仿StoreHouse效果，但是将动画时长设置的很大，所以能看到它逐渐的过程。
+
+---
+#### 2017 01 05 更新：
+I have a pic.I have a view. Oh~,Path(Anim)View.
+效果先随便上几个图，以后**你找到的图有多精彩，gif就有多精彩**：
+
+随便搜了一个铅笔画的图，丢进去
+![](https://dn-mhke0kuv.qbox.me/37f9f06933f2030dbc4c.gif)
+
+随手复制的二维码icon
+![随手复制的二维码icon](https://dn-mhke0kuv.qbox.me/0a32d6e5f1473918174c.gif)
+
+来自大佬wing的铁塔
+![](https://dn-mhke0kuv.qbox.me/3b40ca37df67131d88d7.gif)
+
+
+
+---
 
 StoneHouse效果如下简单使用：
 ```
