@@ -152,7 +152,7 @@ public class PathAnimView extends View {
                     break;
                 case MeasureSpec.AT_MOST:
                     int computeSize = (int) (mSourceRect.bottom) + getPaddingTop() + getPaddingBottom();
-                    hSize = Math.min(wSize, computeSize);
+                    hSize = Math.min(hSize, computeSize);
                     break;
                 case MeasureSpec.UNSPECIFIED:
                     hSize = (int) (mSourceRect.bottom) + getPaddingTop() + getPaddingBottom();
