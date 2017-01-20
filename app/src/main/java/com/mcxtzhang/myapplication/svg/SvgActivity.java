@@ -3,6 +3,7 @@ package com.mcxtzhang.myapplication.svg;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.mcxtzhang.myapplication.R;
 import com.mcxtzhang.pathanimlib.PathAnimView;
@@ -13,6 +14,13 @@ import java.text.ParseException;
 public class SvgActivity extends AppCompatActivity {
     PathAnimView storeView3;
 
+    //SVG转-》path tools
+    SvgPathParser svgPathParser = new SvgPathParser();
+
+    String mSuccessString;
+    String mMeiziString;
+    String mTietaString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +28,8 @@ public class SvgActivity extends AppCompatActivity {
 
         storeView3 = (PathAnimView) findViewById(R.id.storeView3);
 
-        //SVG转-》path
-        //还在完善中，我从github上找了如下工具类，发现简单的SVG可以转path，复杂点的 就乱了
-        SvgPathParser svgPathParser = new SvgPathParser();
 
-
-        String tieta = getString(R.string.tieta);
+        mTietaString = getString(R.string.tieta);
 
 
         String del = getString(R.string.del);
@@ -49,15 +53,61 @@ public class SvgActivity extends AppCompatActivity {
 
         String settings = getResources().getString(R.string.settings);
         String qrcode2 = getString(R.string.qrcode2);
-        String qianbihua = getString(R.string.qianbihua);
+        mMeiziString = getString(R.string.qianbihua);
+
+        mSuccessString = "M 92.25 10.34 C 111.88 8.58 132.06 13.56 148.61 24.29 C 166.17 35.55 179.69\n" +
+                "53.05 185.87 73.00 C 191.06 89.48 191.35 107.43 186.77 124.08 C 181.11 145.24\n" +
+                "167.22 163.97 148.80 175.77 C 131.30 187.10 109.74 191.90 89.08 189.32 C 72.31\n" +
+                "187.41 56.16 180.57 43.08 169.90 C 26.03 156.08 14.33 135.83 11.10 114.10 C 7.91\n" +
+                "94.17 11.66 73.19 21.67 55.66 C 35.93 30.23 63.14 12.60 92.25 10.34 M 86.38\n" +
+                "20.54 C 72.89 22.84 60.04 28.70 49.42 37.33 C 33.89 49.80 23.21 68.19 20.29\n" +
+                "87.92 C 18.37 101.25 19.60 115.10 24.32 127.75 C 31.72 148.00 47.60 164.91 67.29\n" +
+                "173.66 C 83.17 180.82 101.40 182.40 118.35 178.50 C 147.32 171.95 171.44 148.09\n" +
+                "178.28 119.18 C 183.15 99.38 180.25 77.71 169.95 60.06 C 160.50 43.44 144.93\n" +
+                "30.43 126.92 24.02 C 114.00 19.37 99.90 18.33 86.38 20.54 Z"
+                + "M 98.47 119.50 C 115.62 101.54 132.82 83.63 149.94 65.64 C 152.30 67.69 154.62\n" +
+                "69.80 156.88 71.96 C 139.77 89.82 122.86 107.88 105.84 125.81 C 102.48 129.50\n" +
+                "98.89 133.40 93.92 134.80 C 87.33 137.00 79.80 134.87 74.94 130.01 C 66.27\n" +
+                "121.60 57.39 113.41 48.80 104.93 C 50.86 102.68 52.91 100.42 54.96 98.16 C 63.73\n" +
+                "106.34 72.31 114.72 81.04 122.94 C 83.40 125.27 86.87 126.63 90.17 125.77 C\n" +
+                "93.75 125.04 96.10 122.01 98.47 119.50 Z";
         try {
-            Path path = svgPathParser.parsePath(qianbihua);
+            Path path = svgPathParser.parsePath(mSuccessString);
             storeView3.setSourcePath(path);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        storeView3.getPathAnimHelper().setAnimTime(5000);
-        storeView3.startAnim();
+        //storeView3.getPathAnimHelper().setAnimTime(2000);
+        storeView3.setAnimInfinite(false).setAnimTime(2000).startAnim();
+    }
+
+
+    public void onChange(View view) {
+        try {
+            Path path = null;
+            switch (view.getId()) {
+                case R.id.changePay:
+                    path = svgPathParser.parsePath(mSuccessString);
+                    break;
+                case R.id.changeMeizi:
+                    path = svgPathParser.parsePath(mMeiziString);
+                    break;
+                case R.id.changeTieta:
+                    path = svgPathParser.parsePath(mTietaString);
+                    break;
+                case R.id.changeBigPath:
+                    path = svgPathParser.parsePath(getResources().getString(R.string.bukemiaoshu));
+                    break;
+
+            }
+            storeView3.clearAnim();
+            storeView3.setSourcePath(path);
+            storeView3.requestLayout();
+            storeView3.setAnimTime(2000).startAnim();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

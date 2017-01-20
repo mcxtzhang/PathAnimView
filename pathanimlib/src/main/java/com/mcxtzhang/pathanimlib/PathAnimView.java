@@ -5,7 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -22,6 +24,8 @@ import android.view.View;
  */
 
 public class PathAnimView extends View {
+    private static final String TAG = "zxt/PathAnimView";
+    protected RectF mSourceRect;
     protected Path mSourcePath;//需要做动画的源Path
     protected Path mAnimPath;//用于绘制动画的Path
     protected Paint mPaint;
@@ -59,6 +63,8 @@ public class PathAnimView extends View {
      */
     public PathAnimView setSourcePath(Path sourcePath) {
         mSourcePath = sourcePath;
+        mSourceRect = new RectF();
+        mSourcePath.computeBounds(mSourceRect, true);
         initAnimHelper();
         return this;
     }
@@ -120,6 +126,49 @@ public class PathAnimView extends View {
         //初始化动画帮助类
         initAnimHelper();
 
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (null != mSourceRect) {
+            Log.d(TAG, "onMeasure() called with: mSourceRect = [" + mSourceRect);
+            int wMode = MeasureSpec.getMode(widthMeasureSpec);
+            int wSize = MeasureSpec.getSize(widthMeasureSpec);
+            int hMode = MeasureSpec.getMode(heightMeasureSpec);
+            int hSize = MeasureSpec.getSize(heightMeasureSpec);
+            switch (wMode) {
+                case MeasureSpec.EXACTLY:
+                    break;
+                case MeasureSpec.AT_MOST:
+                    int computeSize = (int) (mSourceRect.right) + getPaddingLeft() + getPaddingRight();
+                    wSize = Math.min(wSize, computeSize);
+                    break;
+                case MeasureSpec.UNSPECIFIED:
+                    wSize = (int) (mSourceRect.right) + getPaddingLeft() + getPaddingRight();
+                    break;
+            }
+            switch (hMode) {
+                case MeasureSpec.EXACTLY:
+                    break;
+                case MeasureSpec.AT_MOST:
+                    int computeSize = (int) (mSourceRect.bottom) + getPaddingTop() + getPaddingBottom();
+                    hSize = Math.min(wSize, computeSize);
+                    break;
+                case MeasureSpec.UNSPECIFIED:
+                    hSize = (int) (mSourceRect.bottom) + getPaddingTop() + getPaddingBottom();
+                    break;
+            }
+            setMeasuredDimension(wSize, hSize);
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }
+
+    }
+
+    //auto-fit size, in this demo, for EXACTLY and UNSPEICIFIED
+    private void setWrapSize() {
+        setMeasuredDimension(MeasureSpec.makeMeasureSpec((int) (mSourceRect.right) + getPaddingLeft() + getPaddingRight(), MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec((int) (mSourceRect.bottom) + getPaddingTop() + getPaddingBottom(), MeasureSpec.EXACTLY));
     }
 
     @Override
