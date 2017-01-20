@@ -3,6 +3,7 @@ package com.mcxtzhang.myapplication.svg;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.mcxtzhang.myapplication.R;
@@ -73,6 +74,12 @@ public class SvgActivity extends AppCompatActivity {
                 "93.75 125.04 96.10 122.01 98.47 119.50 Z";
         try {
             Path path = svgPathParser.parsePath(mSuccessString);
+            path = new Path();
+            path.moveTo(0,0);
+            path.lineTo(getResources().getDisplayMetrics().widthPixels,getResources().getDisplayMetrics().heightPixels);
+            Log.d("zxt", "onCreate() called with: getResources().getDisplayMetrics().widthPixels = [" + getResources().getDisplayMetrics().widthPixels + "]");
+            Log.d("zxt", "onCreate() called with: getResources().getDisplayMetrics().heightPixels = [" + getResources().getDisplayMetrics().heightPixels + "]");
+            path.lineTo(getResources().getDisplayMetrics().widthPixels*2,0);
             storeView3.setSourcePath(path);
         } catch (ParseException e) {
             e.printStackTrace();

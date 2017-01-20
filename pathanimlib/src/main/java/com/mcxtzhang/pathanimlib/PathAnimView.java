@@ -201,6 +201,23 @@ public class PathAnimView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //add for width and height auto-fit source path,
+        float wSampleSize = 1;
+        float wantDrawWidth = mSourceRect.right + getPaddingLeft() + getPaddingRight();
+        if (wantDrawWidth > getWidth()) {
+            wSampleSize = getWidth() / wantDrawWidth;
+        }
+        float hSampleSize = 1;
+        float wantDrawHeight = mSourceRect.bottom + getPaddingTop() + getPaddingBottom();
+        if (wantDrawHeight > getHeight()) {
+            hSampleSize = getHeight() / wantDrawHeight;
+        }
+        //narrow the canvas
+        if (wSampleSize != 1 || hSampleSize != 1) {
+            canvas.scale(wSampleSize, hSampleSize);
+        }
+
+
         //平移
         canvas.translate(mPaddingLeft, mPaddingTop);
 
