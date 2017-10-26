@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SvgActivity.class));
             }
         });
+
+        PerformanceMonitorUtils.monitorChoreoGrapher();
+
+        PerformanceMonitorUtils.monitorMainLooper();
     }
 
     public void start(View view) {
